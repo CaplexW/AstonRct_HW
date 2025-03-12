@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import FormComponent from './components/FormComponent';
+import Input from './components/input'
 
 function App() {
   return (
@@ -17,6 +19,11 @@ function App() {
         >
           Learn React
         </a>
+        <FormComponent onSubmit={() => { console.log('submiting...')}}>
+          <Input name='e-mail' />
+          <Input name='password' type='password' />
+          <Input name='number' type='number' />
+        </FormComponent>
       </header>
     </div>
   );
