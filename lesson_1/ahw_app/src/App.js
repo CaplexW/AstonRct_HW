@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import FormComponent from './components/FormComponent';
-import Input from './components/input'
+import Form from './components/Form';
+import Input from './components/Input'
 
 function App() {
   return (
@@ -19,11 +19,11 @@ function App() {
         >
           Learn React
         </a>
-        <FormComponent onSubmit={() => { console.log('submiting...')}}>
-          <Input name='e-mail' />
+        <Form onSubmit={(data) => { console.log(`You have submited data:${data}`) }}>
+          <Input name='email' />
           <Input name='password' type='password' />
           <Input name='number' type='number' />
-        </FormComponent>
+        </Form>
       </header>
     </div>
   );
