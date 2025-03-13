@@ -6,6 +6,55 @@ class Form extends Component {
     this.state = { data: {} };
   }
 
+  componentDidMount() {
+    console.warn('componentDidMount');
+    console.info('This function calls when component is mounted');
+    console.info('It accepts no arguments and can be used to take some actions after render, like getting access to render result:');
+
+    const form = document.getElementById('classed-form');
+    console.log(form);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.warn('shouldComponentUpdate')
+    console.info('If this function returns true, the component will be updated');
+    console.info('It accepts changed props:');
+    console.log(nextProps);
+    console.info('And changed state:');
+    console.log(nextState);
+
+    return (this.state !== nextState);
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.warn('getSnapshotBeforeUpdate');
+    console.info('If shouldComponentUpdate returns true, this function calls.');
+    console.info('It accepts previos props:');
+    console.log(prevProps);
+    console.info('and previos state:');
+    console.log(prevState);
+    console.info('as an arguments.');
+    console.info('It returns value that can be used in componentDidUpdate method as snapshot');
+
+    return '"Value returned form getSnapshotBeforeUpdate method"';
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.warn('componentDidUpdate');
+    console.info('This function calls after component was updated');
+    console.info('It accepts as an arguments previos props:');
+    console.log(prevProps);
+    console.info('previos state:');
+    console.log(prevState);
+    console.info('and a snapshot recived form getSnapshotBeforeUpdate method:');
+    console.log(snapshot);
+  }
+
+  componentWillUnmount(arg) {
+    console.warn('componentWillUnmount');
+    console.info('This function calls when component is going to unmount. It recived no arguments and can bu used to remove stuff that is irrelevant without this component.');
+  }
+
   changeInputData = ({ name, value }) => {
     this.setState((prevState) => ({ data: { ...prevState.data, [name]: value } }));
   }
@@ -27,7 +76,7 @@ class Form extends Component {
     })
 
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={this.submit} id='classed-form'>
         {childrenWithProps}
         <button type="submit">Submit</button>
       </form>
