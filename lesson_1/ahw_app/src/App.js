@@ -20,9 +20,7 @@ function App() {
           Learn React
         </a> */}
         <Form onSubmit={(data) => { console.log(`You have submited data:${data}`) }}>
-          <Input name='email' />
-          <Input name='password' type='password' />
-          <Input name='number' type='number' />
+          <Input name='text' />
         </Form>
       </header>
     </div>

@@ -5,8 +5,8 @@ class Input extends Component {
     const { name, value, onChange, type = 'text', placeholder } = this.props;
 
     return (
-      <div>
-        <label htmlFor={name}>{placeholder || name}</label>
+      <div className='row'>
+        <label htmlFor={name}>{placeholder || name + ' '}</label>
         <input
           id={name}
           name={name}
