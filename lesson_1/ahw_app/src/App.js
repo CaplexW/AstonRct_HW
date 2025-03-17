@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 import Input from './components/Input'
+import List from './components/list';
+import { data1, data2 } from './db/mockItems';
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
         <Form onSubmit={(data) => { console.log(`You have submited data:${data}`) }}>
           <Input name='text' />
         </Form>
+        <div className='list-container' >
+          <List items={data1} />
+          <List items={data2} />
+        </div>
       </header>
     </div>
   );
